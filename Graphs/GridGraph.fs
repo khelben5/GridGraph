@@ -12,7 +12,11 @@ module GridGraph =
     let isEmpty graph =
         Array.isEmpty graph.vertices && Array.isEmpty graph.edges
 
-    let createGrid height width = empty ()
+    let create height width = empty ()
+
+    let vertexCount graph = Array.length graph.vertices
+
+    let edgeCount graph = Array.length graph.edges
 
     let hasVertex vertex graph = graph.vertices |> Array.contains vertex
 

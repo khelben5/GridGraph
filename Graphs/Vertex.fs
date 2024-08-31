@@ -6,4 +6,4 @@ module Vertex =
 
     let create x y = { x = x; y = y }
 
-    let description vertex = $"Vertex({vertex.x}, {vertex.y})"
+    let description vertex = $"({vertex.x}, {vertex.y})"

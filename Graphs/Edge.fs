@@ -25,4 +25,5 @@ module Edge =
     let connects vertex edge =
         edge.vertexA = vertex || edge.vertexB = vertex
 
-    let description edge = $"Edge({edge.vertexA}, {edge.vertexB})"
+    let description edge =
+        $"({edge.vertexA |> Vertex.description}) - ({edge.vertexB |> Vertex.description})"
