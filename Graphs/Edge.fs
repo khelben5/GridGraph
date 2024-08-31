@@ -2,21 +2,27 @@ namespace Graphs
 
 type Edge =
     private
-        { nodeIdA: NodeId
-          nodeIdB: NodeId }
+        { vertexA: Vertex
+          vertexB: Vertex }
 
-type SameVertexError = { message: string }
+type EdgeError =
+    | SameVertexError
+    | DiagonalEdgeError
+    | NotANeighbourError
 
 module Edge =
 
-    let create nodeIdA nodeIdB : Result<Edge, SameVertexError> =
-        if nodeIdA = nodeIdB then
-            Error { message = "Cannot create an edge with the same vertex." }
+    let create vertexA vertexB : Result<Edge, EdgeError> =
+        if vertexA = vertexB then
+            Error SameVertexError
+        elif vertexA.x <> vertexB.x && vertexA.y <> vertexB.y then
+            Error DiagonalEdgeError
+        elif abs (vertexA.x - vertexB.x) > 1 || abs (vertexA.y - vertexB.y) > 1 then
+            Error NotANeighbourError
         else
-            Ok { nodeIdA = nodeIdA; nodeIdB = nodeIdB }
+            Ok { vertexA = vertexA; vertexB = vertexB }
 
-    let connects nodeId edge =
-        edge.nodeIdA = nodeId || edge.nodeIdB = nodeId
+    let connects vertex edge =
+        edge.vertexA = vertex || edge.vertexB = vertex
 
-    let description edge =
-        $"Edge({edge.nodeIdA |> NodeId.description}, {edge.nodeIdB |> NodeId.description})"
+    let description edge = $"Edge({edge.vertexA}, {edge.vertexB})"

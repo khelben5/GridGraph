@@ -3,11 +3,11 @@ module GraphAssertions
 open Xunit
 open Graphs
 
-let assertShouldContainNode node graph =
-    Assert.True(Graph.hasNode node graph, $"Graph should contain node {node |> Node.description}.")
+let assertShouldContainNode vertex graph =
+    Assert.True(GridGraph.hasVertex vertex graph, $"Graph should contain vertex {vertex |> Vertex.description}.")
 
 let assertShouldContainEdge edge graph =
-    Assert.True(Graph.hasEdge edge graph, $"Graph should contain edge {edge |> Edge.description}")
+    Assert.True(GridGraph.hasEdge edge graph, $"Graph should contain edge {edge |> Edge.description}")
 
 let assertShouldContain nodes edges graph =
     nodes |> Array.iter (fun node -> assertShouldContainNode node graph)

@@ -7,7 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Edge.Test.fs" />
-    <Compile Include="Node.Test.fs" />
     <Compile Include="GraphAssertions.fs" />
     <Compile Include="Graph.Test.fs" />
     <Compile Include="Program.fs" />
