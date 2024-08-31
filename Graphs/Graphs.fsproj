@@ -4,6 +4,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="UUID.fs" />
     <Compile Include="NodeId.fs" />
     <Compile Include="Node.fs" />
     <Compile Include="Edge.fs" />
