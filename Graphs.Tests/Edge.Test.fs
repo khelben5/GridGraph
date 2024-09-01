@@ -41,6 +41,6 @@ let ``Can create a valid edge`` () =
 
     match result with
     | Ok edge ->
-        Assert.True(Edge.connects vertexA edge)
-        Assert.True(Edge.connects vertexB edge)
+        Edge.connects vertexA edge |> Assert.True
+        Edge.connects vertexB edge |> Assert.True
     | Error _ -> Assert.Fail "Should be able to create a valid edge."

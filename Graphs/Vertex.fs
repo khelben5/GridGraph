@@ -13,12 +13,6 @@ module Vertex =
         elif y < 0 then Error NegativeYError
         else Ok { x = x; y = y }
 
-    let left vertex =
-        create (vertex.x - 1) vertex.y |> Result.toOption
-
-    let top vertex =
-        create vertex.x (vertex.y - 1) |> Result.toOption
-
     let right vertex width =
         if vertex.x = width - 1 then
             None

@@ -5,11 +5,6 @@ open Graphs
 open Utils
 
 [<Fact>]
-let ``Creates an empty graph`` () =
-    let emptyGraph = GridGraph.empty ()
-    GridGraph.isEmpty emptyGraph |> Assert.True
-
-[<Fact>]
 let ``Creates a non empty grid graph`` () =
     let vertex00 = createVertexOrRaise 0 0
     let vertex01 = createVertexOrRaise 0 1

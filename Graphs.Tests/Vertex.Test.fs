@@ -21,42 +21,6 @@ let ``Cannot create vertex with negative y`` () =
     | Error error -> Assert.Equal(NegativeYError, error)
 
 [<Fact>]
-let ``Returns left vertex correctly`` () =
-    let original = createVertexOrRaise 1 2
-    let result = Vertex.left original
-
-    match result with
-    | Some vertex -> Assert.Equal(createVertexOrRaise 0 2, vertex)
-    | None -> Assert.Fail "Should return left vertex correctly."
-
-[<Fact>]
-let ``Cannot return left vertex if the vertex is already on the left`` () =
-    let original = createVertexOrRaise 0 2
-    let result = Vertex.left original
-
-    match result with
-    | Some _ -> Assert.Fail "Should not return left vertex for a vertex already on the left."
-    | None -> Assert.True true
-
-[<Fact>]
-let ``Returns top vertex correctly`` () =
-    let original = createVertexOrRaise 1 2
-    let result = Vertex.top original
-
-    match result with
-    | Some vertex -> Assert.Equal(createVertexOrRaise 1 1, vertex)
-    | None -> Assert.Fail "Should return top vertex correctly."
-
-[<Fact>]
-let ``Cannot return top vertex if the vertex is already on the top`` () =
-    let original = createVertexOrRaise 1 0
-    let result = Vertex.top original
-
-    match result with
-    | Some _ -> Assert.Fail "Should not return top vertex for a vertex already on the top."
-    | None -> Assert.True true
-
-[<Fact>]
 let ``Returns right vertex correctly`` () =
     let width = 3
     let original = createVertexOrRaise 1 2
